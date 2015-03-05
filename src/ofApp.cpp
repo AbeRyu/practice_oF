@@ -118,9 +118,9 @@ void ofApp::draw(){
         mentor[0].bind();
         
         //ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
-        
+        ofRotateZ(180);
         polygons.at(i)->draw();
-        
+        ofRotateZ(-180);
         mentor[0].unbind();
     }
     
