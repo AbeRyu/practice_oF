@@ -8,8 +8,9 @@ void ofApp::setup(){
 //    ofSetVerticalSync(true);
     ofEnableNormalizedTexCoords();
 //   ofEnableAlphaBlending();
-//    ofEnableBlendMode(OF_BLENDMODE_ADD);
-    
+    ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+    ofSetVerticalSync(true);//画面の垂直同期をONに,素早い動きをした際に画面が途中までしか更新されずちらついてしまう現象を防いでいます。
+    //ofEnableDepthTest();
     //背景画像の読込み
     firstBg.loadImage("tech.png");
     
@@ -44,9 +45,10 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
+    ofDisableNormalizedTexCoords();
     ofBackground(255);
     firstBg.draw(0,0,ofGetWidth(),ofGetHeight());
+    ofEnableNormalizedTexCoords();
     //時刻を取得
     //秒を取得
     float s = ofGetSeconds();
@@ -112,10 +114,11 @@ void ofApp::draw(){
     camera.begin();
     
     for(int i = 0; i < num ; i++){
+        ofFill();
         mentor[0].bind();
         
         //ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
-        ofFill();
+        
         polygons.at(i)->draw();
         
         mentor[0].unbind();

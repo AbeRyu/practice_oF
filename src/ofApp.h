@@ -12,7 +12,7 @@ public:
         mPolygonPosition = ofVec3f(ofRandom(-1000,1000),
                                    ofRandom(-1000,1000),
                                    ofRandom(-1000,1000));
-        mPolygonSize = floor(ofRandom(50,100));
+        mPolygonSize = floor(ofRandom(300,500));
         mPolygonType = 0;
         //floor =床 切り捨て ceil = 天井 切り上げ
     };  //constructorー作るとき
@@ -24,7 +24,7 @@ public:
         ofBoxPrimitive boxPremitive;
         boxPremitive.setPosition(mPolygonPosition);
         boxPremitive.set(mPolygonSize);
-        boxPremitive.drawWireframe();
+        boxPremitive.draw();
     }
     
 };
